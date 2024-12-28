@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Detentos e Violação</title>
+</head>
+<body>
+    <h1>Lista de Detentos e suas Violações</h1>
+    
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Violacoes</th>
+        </tr>
+        
+        <p>  ${detentosfiltrados} </p>
+        
+        <tr th:each="detento : ${detentosfiltrados}">
+            <td th:text="${detento.nome}"></td>
+            <td>
+                <ul th:if="${detento.listaViolacoes != null}">
+                    <li th:each="violacao : ${detento.listaViolacoes}" 
+                        th:text="${violacao.descricao} + ' (' + ${violacao.datadaviolacao} + ')'" 
+                    ></li>
+                </ul>
+                <p th:if="${detento.listaViolacoes == null}">Sem violações.</p>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
