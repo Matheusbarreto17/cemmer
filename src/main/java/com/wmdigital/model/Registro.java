@@ -282,7 +282,7 @@ public class Registro implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Nome:" + nome;
+		return "Nome:" + nome +".";
 	}
 	
 }
